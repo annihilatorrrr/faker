@@ -1,13 +1,12 @@
-import type { DateEntryDefinition } from '../../../definitions';
-
 export default {
+  abbr: null,
   wide: [
     'الأحَد',
+    'الأربعاء',
     'الإثنين',
     'الثلاثاء',
-    'الأربعاء',
-    'الخميس',
     'الجمعة',
+    'الخميس',
     'السبت',
   ],
-} as DateEntryDefinition;
+};

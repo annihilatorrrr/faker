@@ -14,6 +14,66 @@
       "sponsor": "https://github.com/sponsors/Shinigami92"
     },
     {
+      "avatar": "https://github.com/ST-DDT.png",
+      "name": "Daniel Theuke",
+      "title": "Code Maintainer | Docs Automation",
+      "org": "",
+      "orgLink": "",
+      "desc": "",
+      "links": [{ "icon": "github", "link": "https://github.com/ST-DDT" }],
+      "sponsor": "https://github.com/sponsors/ST-DDT"
+    },
+    {
+      "avatar": "https://github.com/xDivisionByZerox.png",
+      "name": "Leyla Jähnig",
+      "title": "Code Maintainer",
+      "desc": "Tell me about your favorite programming language and why is it TypeScript?",
+      "links": [
+        { "icon": "github", "link": "https://github.com/xDivisionByZerox" }
+      ]
+    }
+  ],
+  "contributors": [
+    {
+      "avatar": "https://github.com/import-brain.png",
+      "name": "Eric Cheng",
+      "title": "Contributor",
+      "org": "",
+      "orgLink": "",
+      "desc": "",
+      "links": [
+        { "icon": "github", "link": "https://github.com/import-brain" },
+        {
+          "icon": "linkedin",
+          "link": "https://www.linkedin.com/in/ericcheng-software/"
+        }
+      ],
+      "sponsor": "https://github.com/sponsors/import-brain"
+    },
+    {
+      "avatar": "https://github.com/matthewmayer.png",
+      "name": "Matt Mayer",
+      "title": "Contributor",
+      "desc": "",
+      "links": [
+        { "icon": "github", "link": "https://github.com/matthewmayer" }
+      ],
+      "sponsor": "https://github.com/sponsors/matthewmayer"
+    },
+    {
+      "avatar": "https://github.com/pkuczynski.png",
+      "name": "Piotr Kuczynski",
+      "title": "Contributor",
+      "org": "",
+      "orgLink": "",
+      "desc": "",
+      "links": [
+        { "icon": "github", "link": "https://github.com/pkuczynski" },
+        { "icon": "twitter", "link": "https://twitter.com/PiotrKuczynski" }
+      ],
+      "sponsor": "https://github.com/sponsors/pkuczynski"
+    },
+    {
       "avatar": "https://github.com/damienwebdev.png",
       "name": "Damien Retzinger",
       "title": "Advisor",
@@ -40,16 +100,6 @@
       "sponsor": "https://github.com/sponsors/prisis"
     },
     {
-      "avatar": "https://github.com/ST-DDT.png",
-      "name": "Daniel Theuke",
-      "title": "Code Maintainer | Docs Automation",
-      "org": "",
-      "orgLink": "",
-      "desc": "",
-      "links": [{ "icon": "github", "link": "https://github.com/ST-DDT" }],
-      "sponsor": "https://github.com/sponsors/ST-DDT"
-    },
-    {
       "avatar": "https://github.com/JessicaSachs.png",
       "name": "Jessica Sachs",
       "title": "Press Officer",
@@ -61,46 +111,6 @@
         { "icon": "twitter", "link": "https://twitter.com/_JessicaSachs" }
       ],
       "sponsor": "https://github.com/sponsors/JessicaSachs"
-    }
-  ],
-  "contributors": [
-    {
-      "avatar": "https://github.com/import-brain.png",
-      "name": "Eric Cheng",
-      "title": "Triage",
-      "org": "",
-      "orgLink": "",
-      "desc": "",
-      "links": [{ "icon": "github", "link": "https://github.com/import-brain" }]
-    },
-    {
-      "avatar": "https://github.com/xDivisionByZerox.png",
-      "name": "Leyla Jähnig",
-      "title": "Contributor",
-      "desc": "",
-      "links": [
-        { "icon": "github", "link": "https://github.com/xDivisionByZerox" }
-      ]
-    },
-    {
-      "avatar": "https://github.com/matthewmayer.png",
-      "name": "Matt Mayer",
-      "title": "Contributor",
-      "desc": "",
-      "links": [{ "icon": "github", "link": "https://github.com/matthewmayer" }]
-    },
-    {
-      "avatar": "https://github.com/pkuczynski.png",
-      "name": "Piotr Kuczynski",
-      "title": "Contributor",
-      "org": "",
-      "orgLink": "",
-      "desc": "",
-      "links": [
-        { "icon": "github", "link": "https://github.com/pkuczynski" },
-        { "icon": "twitter", "link": "https://twitter.com/PiotrKuczynski" }
-      ],
-      "sponsor": "https://github.com/sponsors/pkuczynski"
     }
   ],
   "emeriti": [

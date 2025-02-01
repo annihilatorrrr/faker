@@ -4,7 +4,7 @@ import type { LocaleEntry } from './definitions';
 /**
  * The possible definitions related to internet stuff.
  */
-export type InternetDefinitions = LocaleEntry<{
+export type InternetDefinition = LocaleEntry<{
   /**
    * Common top level and similar domains (e.g `de`, `co.uk`).
    */
@@ -29,4 +29,11 @@ export type InternetDefinitions = LocaleEntry<{
    * List of some HTTP status codes.
    */
   http_status_code: Record<HTTPStatusCodeType, number[]>;
+
+  jwt_algorithm: string[];
+
+  /**
+   * List of user agent patterns.
+   */
+  user_agent_pattern: string[];
 }>;

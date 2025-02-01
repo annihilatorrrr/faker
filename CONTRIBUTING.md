@@ -1,14 +1,35 @@
 A lot of effort has been put into `Faker` to create a useful and handy library.
 There are still a lot of things to be done, so all contributions are welcome!
-If you want to make `Faker` a better, please read the following contribution guide.
+If you want to make `Faker` a better place, please read the following contribution guide.
 
-# Important
+## Before you start
 
-Please make sure that you run `pnpm run preflight` before making a PR to ensure that everything is working from the start.
+It's generally helpful to [create an issue](https://github.com/faker-js/faker/issues/new/choose) first:
+
+- If you are proposing a new feature, this allows other users to "upvote" the issue and discuss solutions to possible problems.
+  Once an issue has enough upvotes (usually 10+) it will be reviewed for development.
+- If you notice a bug, this allows you to provide steps to reproduce, and allows other users to confirm this is actually a bug.
+- It's not required to create an issue in all cases.
+  For example for fixing a typo in documentation, or adding some new data for a locale, you could immediately create a pull request without an issue.
+
+## Important
+
+Please make sure that you run `pnpm run preflight` before making a PR to ensure that everything is working from the start.  
+This is a shorthand for running the following scripts in order:
+
+- `pnpm install` - installs npm packages defined in package.json
+- `pnpm run generate:locales` - generates locale files
+- `pnpm run generate:api-docs` - generates API documentation
+- `pnpm run format` - runs [prettify](https://github.com/prettier/prettier) to format code
+- `pnpm run lint` - runs [ESLint](https://github.com/eslint/eslint) to enforce project code standards
+- `pnpm run build:clean` - removes artifacts from previous builds
+- `pnpm run build:code` - builds the code, both CommonJS and ESM versions
+- `pnpm run test:update-snapshots` - runs all tests, and updates any snapshots if needed
+- `pnpm run ts-check` - checks that there are no TypeScript errors in any files
 
 ## Good to know
 
-- The project is being built by [esbuild](https://esbuild.github.io) (see [bundle.ts](scripts/bundle.ts))
+- The project is being built by [tsup](https://tsup.egoist.dev) (see [tsup.config.ts](tsup.config.ts))
 - The documentation is running via VitePress.
   Make sure you **build** the project before running the docs, cause some files depend on `dist`.
   Use `pnpm run docs:dev` to edit them in live mode.
@@ -30,9 +51,14 @@ If adding new data definitions to Faker, you'll often need to find source data. 
 - But if you are compiling a list of, for example, popular personal names or cities, don't copy directly from a single source (Wikipedia, 'most popular' articles, government data sites etc). A compilation of facts [can be copyrighted](https://en.wikipedia.org/wiki/Copyright_in_compilation).
 - It's best to refer to multiple sources and use your own judgement/knowledge to make a sample list of data.
 
+## Adding new locale or updating existing one
+
+After adding new or updating existing locale data, you need to run `pnpm run generate:locales` to generate/update the related files.
+Please only change files related to one module (e.g. person, location) whenever possible. This can simplify/speed up the review process. Additionally, it allows the maintainers to track PRs in a meaningful way by adding related labels.
+
 ## Building Faker
 
-The project is being built by [esbuild](https://esbuild.github.io) (see [bundle.ts](scripts/bundle.ts))
+The project is being built by [tsup](https://tsup.egoist.dev) (see [tsup.config.ts](tsup.config.ts))
 
 ```shell
 pnpm install
@@ -151,10 +177,6 @@ describe('someModule', () => {
 });
 ```
 
-## Adding new locale or updating existing one
-
-After adding new or updating existing locale data, you need to run `pnpm run generate:locales` to generate/update the related files.
-
 ## Deprecation workflow
 
 If you ever find yourself deprecating something in the source code, you can follow these steps to save yourself (and the reviewers) some trouble.
@@ -176,6 +198,39 @@ get cat() {
   return 'cat';
 }
 ```
+
+## Documenting changes for new major versions
+
+Each major version has an upgrading guide, e.g. [next.fakerjs.dev/guide/upgrading](https://next.fakerjs.dev/guide/upgrading.html).
+
+While developing new features and fixing bugs for a new release, changes are added to the migration guide to aid developers when the version is released.
+
+The general principle is to document anything which requires a normal user of the library to change their code which uses Faker when upgrading to the new major version.
+
+There are two sections:
+
+- Breaking changes (user MUST change their code)
+- Deprecations and other changes (user SHOULD change their code but it will still work for this major version even if they don't)
+
+Not every change needs to be in the migration guide. If it is too long, it becomes hard for users to spot the important changes.
+
+### Should be in the guide
+
+- Breaking changes, e.g. removal of methods
+- Behavior changes, e.g. a different default for a parameter, or a parameter becoming required
+- Whole modules renaming (e.g. faker.name to faker.person)
+- Locale renames
+- Changes to minimum versions e.g. requiring a new version of Node
+- Changes to how Faker is imported
+
+### Doesn't need to be in the guide
+
+- New locales
+- Changes to locale data in existing locales
+- Bugfixes where it's unlikely anyone was relying on the old behavior (e.g. broken values in locale files)
+- New methods and parameters
+- Straightforward method aliases, e.g. where a method or parameter is renamed but the old name still works identically. (Runtime warnings will already guide the user in this case)
+- Changes to locale definition files which only affect usage via `faker.helpers.fake`, e.g. if a definition file is renamed, but the public API for the method stays the same
 
 ## JSDocs
 

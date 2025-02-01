@@ -3,21 +3,21 @@ import type { LocaleEntry } from './definitions';
 /**
  * The possible definitions related to files and operating systems.
  */
-export type SystemDefinitions = LocaleEntry<{
+export type SystemDefinition = LocaleEntry<{
   /**
    * Returns some common file paths.
    */
-  directoryPaths: string[];
+  directory_path: string[];
 
   /**
    * The mime type definitions with some additional information.
    */
-  mimeTypes: { [mimeType: string]: SystemMimeTypeEntryDefinitions };
+  mime_type: { [mimeType: string]: SystemMimeTypeEntryDefinition };
 }>;
 
 /**
  * The mime-type entry details.
  */
-export interface SystemMimeTypeEntryDefinitions {
+export interface SystemMimeTypeEntryDefinition {
   extensions: string[];
 }

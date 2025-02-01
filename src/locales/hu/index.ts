@@ -4,6 +4,7 @@
  */
 import type { LocaleDefinition } from '../..';
 import animal from './animal';
+import color from './color';
 import commerce from './commerce';
 import company from './company';
 import date from './date';
@@ -15,8 +16,15 @@ import person from './person';
 import phone_number from './phone_number';
 import word from './word';
 
+/**
+ * The locale data for the `hu` locale.
+ *
+ * - Language: Hungarian
+ * - Endonym: magyar
+ */
 const hu: LocaleDefinition = {
   animal,
+  color,
   commerce,
   company,
   date,
