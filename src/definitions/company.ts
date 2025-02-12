@@ -3,7 +3,7 @@ import type { LocaleEntry } from './definitions';
 /**
  * The possible definitions related to companies.
  */
-export type CompanyDefinitions = LocaleEntry<{
+export type CompanyDefinition = LocaleEntry<{
   /**
    * Business/products related adjectives that can be used to demonstrate data being viewed by a manager.
    */
@@ -38,11 +38,4 @@ export type CompanyDefinitions = LocaleEntry<{
    * Catchphrase nouns that can be displayed to an end user.
    */
   noun: string[];
-
-  /**
-   * Company/Business entity types.
-   *
-   * @deprecated Use `faker.company.name` instead.
-   */
-  suffix: string[];
 }>;

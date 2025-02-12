@@ -1,4 +1,4 @@
-import type { Faker } from '../..';
+import { ModuleBase } from '../../internal/module-base';
 
 /**
  * The possible definitions related to elements.
@@ -36,20 +36,7 @@ export interface Unit {
  *
  * Both methods in this module return objects rather than strings. For example, you can use `faker.science.chemicalElement().name` to pick out the specific property you need.
  */
-export class ScienceModule {
-  constructor(private readonly faker: Faker) {
-    // Bind `this` so namespaced is working correctly
-    for (const name of Object.getOwnPropertyNames(
-      ScienceModule.prototype
-    ) as Array<keyof ScienceModule | 'constructor'>) {
-      if (name === 'constructor' || typeof this[name] !== 'function') {
-        continue;
-      }
-
-      this[name] = this[name].bind(this);
-    }
-  }
-
+export class ScienceModule extends ModuleBase {
   /**
    * Returns a random periodic table element.
    *
@@ -62,7 +49,7 @@ export class ScienceModule {
    */
   chemicalElement(): ChemicalElement {
     return this.faker.helpers.arrayElement(
-      this.faker.definitions.science.chemicalElement
+      this.faker.definitions.science.chemical_element
     );
   }
 

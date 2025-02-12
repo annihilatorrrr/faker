@@ -1,26 +1,13 @@
-import type { Faker } from '../..';
 import { FakerError } from '../../errors/faker-error';
-import { filterWordListByLength } from './filterWordListByLength';
+import { ModuleBase } from '../../internal/module-base';
+import { filterWordListByLength } from './filter-word-list-by-length';
 
 /**
  * Module to return various types of words.
  */
-export class WordModule {
-  constructor(private readonly faker: Faker) {
-    // Bind `this` so namespaced is working correctly
-    for (const name of Object.getOwnPropertyNames(
-      WordModule.prototype
-    ) as Array<keyof WordModule | 'constructor'>) {
-      if (name === 'constructor' || typeof this[name] !== 'function') {
-        continue;
-      }
-
-      this[name] = this[name].bind(this);
-    }
-  }
-
+export class WordModule extends ModuleBase {
   /**
-   * Returns an adjective of random or optionally specified length.
+   * Returns a random adjective.
    *
    * @param options The expected length of the word or the options to use.
    * @param options.length The expected length of the word.
@@ -80,17 +67,20 @@ export class WordModule {
           strategy?: 'fail' | 'closest' | 'shortest' | 'longest' | 'any-length';
         } = {}
   ): string {
-    const opts = typeof options === 'number' ? { length: options } : options;
+    if (typeof options === 'number') {
+      options = { length: options };
+    }
+
     return this.faker.helpers.arrayElement(
       filterWordListByLength({
-        ...opts,
+        ...options,
         wordList: this.faker.definitions.word.adjective,
       })
     );
   }
 
   /**
-   * Returns an adverb of random or optionally specified length.
+   * Returns a random adverb.
    *
    * @param options The expected length of the word or the options to use.
    * @param options.length The expected length of the word.
@@ -150,17 +140,20 @@ export class WordModule {
           strategy?: 'fail' | 'closest' | 'shortest' | 'longest' | 'any-length';
         } = {}
   ): string {
-    const opts = typeof options === 'number' ? { length: options } : options;
+    if (typeof options === 'number') {
+      options = { length: options };
+    }
+
     return this.faker.helpers.arrayElement(
       filterWordListByLength({
-        ...opts,
+        ...options,
         wordList: this.faker.definitions.word.adverb,
       })
     );
   }
 
   /**
-   * Returns a conjunction of random or optionally specified length.
+   * Returns a random conjunction.
    *
    * @param options The expected length of the word or the options to use.
    * @param options.length The expected length of the word.
@@ -220,17 +213,20 @@ export class WordModule {
           strategy?: 'fail' | 'closest' | 'shortest' | 'longest' | 'any-length';
         } = {}
   ): string {
-    const opts = typeof options === 'number' ? { length: options } : options;
+    if (typeof options === 'number') {
+      options = { length: options };
+    }
+
     return this.faker.helpers.arrayElement(
       filterWordListByLength({
-        ...opts,
+        ...options,
         wordList: this.faker.definitions.word.conjunction,
       })
     );
   }
 
   /**
-   * Returns an interjection of random or optionally specified length.
+   * Returns a random interjection.
    *
    * @param options The expected length of the word or the options to use.
    * @param options.length The expected length of the word.
@@ -290,17 +286,20 @@ export class WordModule {
           strategy?: 'fail' | 'closest' | 'shortest' | 'longest' | 'any-length';
         } = {}
   ): string {
-    const opts = typeof options === 'number' ? { length: options } : options;
+    if (typeof options === 'number') {
+      options = { length: options };
+    }
+
     return this.faker.helpers.arrayElement(
       filterWordListByLength({
-        ...opts,
+        ...options,
         wordList: this.faker.definitions.word.interjection,
       })
     );
   }
 
   /**
-   * Returns a noun of random or optionally specified length.
+   * Returns a random noun.
    *
    * @param options The expected length of the word or the options to use.
    * @param options.length The expected length of the word.
@@ -360,17 +359,20 @@ export class WordModule {
           strategy?: 'fail' | 'closest' | 'shortest' | 'longest' | 'any-length';
         } = {}
   ): string {
-    const opts = typeof options === 'number' ? { length: options } : options;
+    if (typeof options === 'number') {
+      options = { length: options };
+    }
+
     return this.faker.helpers.arrayElement(
       filterWordListByLength({
-        ...opts,
+        ...options,
         wordList: this.faker.definitions.word.noun,
       })
     );
   }
 
   /**
-   * Returns a preposition of random or optionally specified length.
+   * Returns a random preposition.
    *
    * @param options The expected length of the word or the options to use.
    * @param options.length The expected length of the word.
@@ -430,17 +432,20 @@ export class WordModule {
           strategy?: 'fail' | 'closest' | 'shortest' | 'longest' | 'any-length';
         } = {}
   ): string {
-    const opts = typeof options === 'number' ? { length: options } : options;
+    if (typeof options === 'number') {
+      options = { length: options };
+    }
+
     return this.faker.helpers.arrayElement(
       filterWordListByLength({
-        ...opts,
+        ...options,
         wordList: this.faker.definitions.word.preposition,
       })
     );
   }
 
   /**
-   * Returns a verb of random or optionally specified length.
+   * Returns a random verb.
    *
    * @param options The expected length of the word or the options to use.
    * @param options.length The expected length of the word.
@@ -500,17 +505,20 @@ export class WordModule {
           strategy?: 'fail' | 'closest' | 'shortest' | 'longest' | 'any-length';
         } = {}
   ): string {
-    const opts = typeof options === 'number' ? { length: options } : options;
+    if (typeof options === 'number') {
+      options = { length: options };
+    }
+
     return this.faker.helpers.arrayElement(
       filterWordListByLength({
-        ...opts,
+        ...options,
         wordList: this.faker.definitions.word.verb,
       })
     );
   }
 
   /**
-   * Returns a random sample of random or optionally specified length.
+   * Returns a random word, that can be an adjective, adverb, conjunction, interjection, noun, preposition, or verb.
    *
    * @param options The expected length of the word or the options to use.
    * @param options.length The expected length of the word.
@@ -592,7 +600,7 @@ export class WordModule {
   }
 
   /**
-   * Returns a string containing a number of space separated random words.
+   * Returns a random string containing some words separated by spaces.
    *
    * @param options The optional options object or the number of words to return.
    * @param options.count The number of words to return. Defaults to a random value between `1` and `3`.

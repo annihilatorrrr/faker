@@ -1,36 +1,32 @@
 export type {
-  AirlineDefinitions,
-  AnimalDefinitions,
-  ColorDefinitions,
-  CommerceDefinitions,
-  CommerceProductNameDefinitions,
-  CompanyDefinitions,
-  DatabaseDefinitions,
-  DateDefinitions,
+  AirlineDefinition,
+  AnimalDefinition,
+  BookDefinition,
+  ColorDefinition,
+  CommerceDefinition,
+  CommerceProductNameDefinition,
+  CompanyDefinition,
+  DatabaseDefinition,
+  DateDefinition,
   DateEntryDefinition,
-  FinanceDefinitions,
-  HackerDefinitions,
-  InternetDefinitions,
+  FinanceDefinition,
+  FoodDefinition,
+  HackerDefinition,
+  InternetDefinition,
   LocaleDefinition,
   LocaleEntry,
-  /** @deprecated Use LocationDefinitions instead */
-  LocationDefinitions as AddressDefinitions,
-  LocationDefinitions,
-  LoremDefinitions,
-  MetadataDefinitions,
-  MusicDefinitions,
-  /** @deprecated Use PersonDefinitions instead */
-  PersonDefinitions as NameDefinitions,
-  PersonDefinitions,
-  /** @deprecated Use PersonTitleDefinitions instead */
-  PersonTitleDefinitions as NameTitleDefinitions,
-  PersonTitleDefinitions,
-  PhoneNumberDefinitions,
-  ScienceDefinitions,
-  SystemDefinitions,
-  SystemMimeTypeEntryDefinitions,
-  VehicleDefinitions,
-  WordDefinitions,
+  LocationDefinition,
+  LoremDefinition,
+  MetadataDefinition,
+  MusicDefinition,
+  PersonDefinition,
+  PersonEntryDefinition,
+  PhoneNumberDefinition,
+  ScienceDefinition,
+  SystemDefinition,
+  SystemMimeTypeEntryDefinition,
+  VehicleDefinition,
+  WordDefinition,
 } from './definitions';
 export { FakerError } from './errors/faker-error';
 export { Faker } from './faker';
@@ -38,20 +34,16 @@ export type { FakerOptions } from './faker';
 export * from './locale';
 export { fakerEN as faker } from './locale';
 export * from './locales';
-export * as allLocales from './locales';
 export { Aircraft } from './modules/airline';
 export type { AircraftType, AirlineModule } from './modules/airline';
 export type { AnimalModule } from './modules/animal';
+export type { BookModule } from './modules/book';
 export { CssFunction, CssSpace } from './modules/color';
 export type {
   Casing,
   ColorFormat,
   ColorModule,
-  /** @deprecated Use CssFunctionType instead */
-  CssFunctionType as CSSFunction,
   CssFunctionType,
-  /** @deprecated Use CssSpaceType instead */
-  CssSpaceType as CSSSpace,
   CssSpaceType,
   NumberColorFormat,
   StringColorFormat,
@@ -60,34 +52,39 @@ export type { CommerceModule } from './modules/commerce';
 export type { CompanyModule } from './modules/company';
 export type { DatabaseModule } from './modules/database';
 export type { DatatypeModule } from './modules/datatype';
-export type { DateModule } from './modules/date';
+export type { DateModule, SimpleDateModule } from './modules/date';
 export type { Currency, FinanceModule } from './modules/finance';
+export {
+  BitcoinAddressFamily,
+  BitcoinNetwork,
+} from './modules/finance/bitcoin';
+export type {
+  BitcoinAddressFamilyType,
+  BitcoinNetworkType,
+} from './modules/finance/bitcoin';
+export type { FoodModule } from './modules/food';
 export type { GitModule } from './modules/git';
 export type { HackerModule } from './modules/hacker';
-export type { HelpersModule } from './modules/helpers';
+export type { HelpersModule, SimpleHelpersModule } from './modules/helpers';
 export type { ImageModule } from './modules/image';
-export type { InternetModule } from './modules/internet';
-export type {
-  /** @deprecated Use LocationModule instead */
-  LocationModule as AddressModule,
-  LocationModule,
-} from './modules/location';
+export { IPv4Network } from './modules/internet';
+export type { IPv4NetworkType, InternetModule } from './modules/internet';
+export type { LocationModule } from './modules/location';
 export type { LoremModule } from './modules/lorem';
 export type { MusicModule } from './modules/music';
 export type { NumberModule } from './modules/number';
 export { Sex } from './modules/person';
-export type {
-  /** @deprecated Use PersonModule instead */
-  PersonModule as NameModule,
-  PersonModule,
-  SexType,
-} from './modules/person';
+export type { PersonModule, SexType } from './modules/person';
 export type { PhoneModule } from './modules/phone';
-// eslint-disable-next-line deprecation/deprecation
-export type { RandomModule } from './modules/random';
 export type { ChemicalElement, ScienceModule, Unit } from './modules/science';
 export type { StringModule } from './modules/string';
 export type { SystemModule } from './modules/system';
 export type { VehicleModule } from './modules/vehicle';
 export type { WordModule } from './modules/word';
+export type { Randomizer } from './randomizer';
+export { SimpleFaker, simpleFaker } from './simple-faker';
 export { mergeLocales } from './utils/merge-locales';
+export {
+  generateMersenne32Randomizer,
+  generateMersenne53Randomizer,
+} from './utils/mersenne';
